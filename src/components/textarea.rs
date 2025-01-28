@@ -195,9 +195,7 @@ impl MockComponent for Textarea {
                         .iter()
                         .cloned()
                         .map(|x| x.unwrap_text_span())
-                        .map(|x| {
-                            crate::utils::wrap_spans(vec![x].as_slice(), wrap_width, &self.props)
-                        })
+                        .map(|x| crate::utils::wrap_spans(&[&x], wrap_width, &self.props))
                         .map(ListItem::new)
                         .collect(),
                     _ => Vec::new(),
